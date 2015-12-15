@@ -1,0 +1,113 @@
+	_________________________________________________________________
+
+	  Balanced super-resolution optical fluctuation imaging (bSOFI)
+	_________________________________________________________________
+
+
+** Contents
+
+	1. Overview
+	2. Requirements
+	3. Installation
+	4. Copyright
+	5. Warranty
+	6. History
+	7. Download
+	8. Trademarks
+
+** Publisher
+
+	Marcel Leutenegger				marcel.leutenegger@a3.epfl.ch
+	Stefan Geissbühler				stefan.geissbuehler@epfl.ch
+
+	École Polytechnique Fédérale de Lausanne EPFL
+	Laboratoire d'Optique Biomédicale LOB
+	Bâtiment BM 5.142				Phone: +41 21 693 7770
+	Station 17
+	CH-1015 Lausanne
+	Switzerland
+
+
+1. Overview
+
+	Super-resolution optical fluctuation imaging (SOFI) is an analysis method to gather
+	super-resolved information from a sequence of diffraction-limited optical microscope
+	images [1]. This toolbox contains the core tools for analyzing image sequences. It
+	features extensions for balancing the SOFI image brightness and for extracting some
+	functional information as described in our recent publication [2].
+
+	SOFICUMULANTS uses the MATLAB toolbox for parallel computing on CUDA capable graphics
+	cards (GPU) if available. The parallel GPU toolbox is featured since MATLAB R2012a
+	and exploits the high computation performance of NVIDIA GPUs.
+
+	A function summary is given in CONTENTS and useful implementation details are found
+	in SOFIGRIDS. EXAMPLE shows the analysis of an image sequence.
+
+
+    [1]	T. Dertinger, R. Colyer, G. Iyer, S. Weiss, J. Enderlein, "Fast, background-free, 3D
+	super-resolution optical fluctuation imaging (SOFI)," Proceedings of the National
+	Academy of Sciences of the United States of America 106: 22287–22292 (2009).
+
+    [2]	S. Geissbuehler, N. L. Bocchio, C. Dellagiacoma, C. Berclaz, M. Leutenegger,
+	Theo Lasser, "Mapping molecular statistics with balanced super-resolution
+	optical fluctuation imaging (bSOFI)," Optical Nanoscopy 1:4 (2012).
+
+
+2. Requirements
+
+	• MATLAB R2012a or newer (previous versions require modifications).
+	• A CUDA capable graphics card (GPU) is highly recommended.
+	• At least 1GB RAM; 4GB or more is recommended.
+
+
+3. Installation
+
+	Unpack the archive and add the SOFI folder to the MATLAB path.
+
+
+4. Copyright
+
+    Copyright © 2012 Marcel Leutenegger et al, École Polytechnique Fédérale de Lausanne,
+    Laboratoire d'Optique Biomédicale, BM 5.142, Station 17, 1015 Lausanne, Switzerland.
+	
+	This program is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+	See 'FILES' for a list of the original package contents.
+
+
+5. Warranty
+
+	Any warranty is strictly refused and you cannot anticipate any financial or
+	technical support in case of malfunction or damage; see the copyright notice.
+
+	Feedback and comments are welcome. We will try to track reported problems and
+	fix bugs.
+
+
+6. History
+
+   • April 10, 2013
+	Version 1.2 released under GNU GPL version 3.
+
+
+7. Download
+
+	This toolbox is available on the authors webpage(s).
+
+
+8. Trademarks
+
+	MATLAB is a registered trademark of The MathWorks. Other product or brand
+	names are trademarks or registered trademarks of their respective holders.
