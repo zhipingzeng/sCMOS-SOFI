@@ -1,5 +1,9 @@
-%% Source code for generating stacks of blinking frames with different noises included
+%--------------------------------------------------------------------------
+% Source code for generating stacks of blinking frames with different noises included
+% Copyright 2015 Zhiping Zeng
+%--------------------------------------------------------------------------
 
+%% Read resolution target file
 
 close all;clear all;
 clc
@@ -36,6 +40,9 @@ for i = 1:2:num
     counter=counter+1;
 end
 imshow(bb,[])
+
+%% Generate power law blinking
+
 n1_3=3;
 n1_10=10;
 n1_20=20;
@@ -160,7 +167,9 @@ for m=1:2:num
        [n1_1500,n2_1500]=swap2(n1_1500,n2_1500);
     end
 end
-% Generate the PSF.
+
+%% Generate the PSF and convolution
+
 xx=-1:0.02:1; %pixel size 20nm
 PSFX=gaussmf(xx,[0.095 0]);   %fwhm=223.8nm for 0.095
 PSFXY=PSFX'*PSFX;
@@ -197,6 +206,9 @@ jj_noise=zeros(long);
 shot_noise_2=zeros(long);
 fixed_pattern_2=zeros(long);
 jj_noise_2=zeros(long);
+
+%% Add noises
+
 for i=1:long;
     for j=1:long;
         x=jj{1}(i,j)/15;    
@@ -230,3 +242,20 @@ imwrite(uint16(imresize(jj_noise_2,20/65)),[filepath4 int2str(frame) '.tif']);
 end
 end
 
+%% Convert to image stacks
+
+InputFilepath=cd;
+for index2=1:20;
+    for ff=1:2;
+matrix4=[3 10 20 50 80 100 200 300 400 500 600 700 800 900 1000 1100 1200 1300 1400 1500];
+filepath3=strcat(InputFilepath,'\RawData-Noises\','photon-',num2str(matrix4(index2)),'\sCMOS\');
+filepath4=strcat(InputFilepath,'\RawData-Noises\','photon-',num2str(matrix4(index2)),'\EMCCD\');
+matrix5={filepath3 filepath4};
+FILEPATH=matrix5(ff);
+outputFileName='stack.tif';
+for K=51:150
+    img=imread([FILEPATH num2str(K,'%02d') '.tif']);
+    imwrite(img, outputFileName, 'WriteMode', 'append',  'Compression','none');
+end
+    end
+end

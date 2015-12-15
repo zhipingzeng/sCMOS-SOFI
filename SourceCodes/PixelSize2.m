@@ -1,5 +1,9 @@
-%% Calculate the curve of correlation value versus spatial frequency with different pixel sizes
+%--------------------------------------------------------------------------
+% Calculate the curve of correlation value versus spatial frequency with different pixel sizes
+% Copyright 2015 Zhiping Zeng
+%--------------------------------------------------------------------------
 
+%% Calculate image correlation functions
 
 clear all,close all
 clc

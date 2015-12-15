@@ -54,5 +54,9 @@ for kk = 1:4
     temp = ( temp - min( min( temp))) / (max( max( temp)) - min( min( temp)));
     imwrite( temp, [filepath_stack, num2str(kk),'.tif']);
 end
+filepath2=strcat(InputFilepath,'\conv_target\');
+temp = sofi{ 3};
+    temp = ( temp - min( min( temp))) / (max( max( temp)) - min( min( temp)));
+    imwrite( temp, [filepath2, '3rd-',num2str(matrix4(index)),'.tif']);
     
 end

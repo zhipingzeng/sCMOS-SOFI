@@ -1,4 +1,9 @@
-%% Calculate the cutoff frequencies for different noise levels
+%--------------------------------------------------------------------------
+% Calculate the cutoff frequencies for different noise levels
+% Copyright 2015 Zhiping Zeng
+%--------------------------------------------------------------------------
+
+%% Read target file
 
 clear all,close all
 clc
@@ -64,6 +69,9 @@ for p=1:count;
     profile(p)=J(aa(p),bb(p));
     profile_target(p)=conv_target2(aa(p),bb(p));
 end
+
+%% Image correlation
+
 [temp,temp2]=corrcoef(profile,profile_target);  %calculate correlation coefficient
 corr_value(count0)=temp(1,2);
 p_value(count0)=temp2(1,2);

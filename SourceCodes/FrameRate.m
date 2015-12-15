@@ -1,5 +1,9 @@
-%% Source code for generating stacks of blinking frames of rotating target with different frame rates
+%--------------------------------------------------------------------------
+% Source code for generating stacks of blinking frames of rotating target with different frame rates
+% Copyright 2015 Zhiping Zeng
+%--------------------------------------------------------------------------
 
+%% Read target file
 
 close all;
 clc
@@ -14,6 +18,9 @@ for i = 1:2:num
     bb(row(i), col(i)) = 1;     
 end
 imshow(bb,[])
+
+%% Generate power law blinking
+
 n1=10;   %sCMOS
 % n1=5*10/3; %EMCCD
 n2=0;
@@ -33,6 +40,9 @@ frame_off1 = 2*ceil(toff1/frame_time);
 C(n,1:2:end) = frame_on1;
 C(n,2:2:end) = frame_off1;
 end  
+
+%% Image rotation
+
 a=ones(1,1.5*num);
 for frame=1:150
 aa=zeros(pixelnumber);

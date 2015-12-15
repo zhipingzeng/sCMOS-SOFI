@@ -1,5 +1,8 @@
-%% Source code for generating stacks of blinking frames with different pixel sizes
-
+%--------------------------------------------------------------------------
+% Source code for generating stacks of blinking frames with different pixel sizes
+% Copyright 2015 Zhiping Zeng
+%--------------------------------------------------------------------------
+%% Read resolution target file
 
 close all;
 clc
@@ -14,6 +17,9 @@ for i = 1:1:num
     bb(row(i), col(i)) = 1;     
 end
 imshow(bb,[])
+
+%% Generate power law blinking
+
 n1=5;
 n2=0;
 C = zeros(num,2*3000);
@@ -44,7 +50,10 @@ for frame=1:600
         n2=temp1;        
     end
     end
-xx=-1:0.02:1; %pixel size 13nm
+    
+%% Convolution with PSF
+
+xx=-1:0.02:1; %pixel size 20nm
 PSFX=gaussmf(xx,[0.095 0]);   %fwhm=223.8nm for 0.095
 PSFXY=PSFX'*PSFX; 
 jj=conv2(aa,PSFXY);  %image convolution
@@ -88,3 +97,13 @@ imwrite(uint16(jjj{nn}),[filepath int2str(frame) '.tif']);
 end
 end
 
+%% Convert to image stacks
+for P=1:16
+    
+filepath2=strcat(InputFilepath,'\RawData-PixelSize\',num2str(matrix(P)),'\');
+outputFileName='stack.tif';
+for K=101:600
+    img=imread([filepath2 num2str(K,'%02d') '.tif']);
+    imwrite(img, outputFileName, 'WriteMode', 'append',  'Compression','none');
+end
+end
