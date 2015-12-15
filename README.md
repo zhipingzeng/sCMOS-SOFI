@@ -1,1 +1,0 @@
-# sCMOS-SOFI
