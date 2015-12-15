@@ -1,4 +1,4 @@
-Download the necessary target files before running the souce codes.
+Download the necessary target files (*.tif) before running the source codes.
 
 For evaluating SOFI performances with different pixel size
 
