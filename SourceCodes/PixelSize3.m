@@ -25,6 +25,7 @@ end
 end
 figure(1)
 plot(matrix,cutoff_freq)  %plot cutoff frequency vs. pixel size
+mkdir(filepath,'result');
 saveas(gcf,strcat(filepath,'result\','cutoff-pixelsize.jpg'));
 xlswrite (strcat(filepath,'result\PixelSize'),matrix);
 xlswrite (strcat(filepath,'result\Cutoff_freq'),cutoff_freq);

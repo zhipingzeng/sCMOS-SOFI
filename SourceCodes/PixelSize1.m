@@ -98,12 +98,13 @@ end
 end
 
 %% Convert to image stacks
+matrix=[20 40 60 80 100 120 140 160 180 200 220 240 260 65 108 267];
 for P=1:16
     
 filepath2=strcat(InputFilepath,'\RawData-PixelSize\',num2str(matrix(P)),'\');
 outputFileName='stack.tif';
 for K=101:600
-    img=imread([filepath2 num2str(K,'%02d') '.tif']);
-    imwrite(img, outputFileName, 'WriteMode', 'append',  'Compression','none');
+    img=imread([filepath2 num2str(K) '.tif']);
+    imwrite(img, [filepath2 outputFileName], 'WriteMode', 'append',  'Compression','none');
 end
 end

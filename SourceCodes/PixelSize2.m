@@ -7,7 +7,7 @@
 
 clear all,close all
 clc
-for index=16:-1:1
+for index=1:16
 clearvars -except index
 close all
 matrix=[20 40 60 80 100 120 140 160 180 200 220 240 260 65 108 267];
@@ -30,7 +30,7 @@ ypos=(ny)-M/2;
 [theta,rr]=cart2pol(xpos,ypos); %Cartesian coordinate transform to polar coordinate
 count0=0;
 pixel_size=499/length(conv_target)*0.022; 
-for radius=round(150*0.022/pixel_size):-20:round(20*0.022/pixel_size);  % specify radius
+for radius=round(150*0.022/pixel_size):-2:round(20*0.022/pixel_size);  % specify radius
     count0=count0+1;
     J=I;
     conv_target2=conv_target;

@@ -21,7 +21,10 @@
 clear all
 clc
 close all
+Filepath0=cd;
+cd('..');
 InputFilepath=cd;
+cd(Filepath0);
 for index=1:16;
 % matrix4=[20 30 40 50 60 70 80 90 100 110 120 130 140 150 160 170 180 190 200 210 220 230 240 250 260 270 65 108 267];
 matrix4=[20 40 60 80 100 120 140 160 180 200 220 240 260 65 108 267];

@@ -254,8 +254,8 @@ matrix5={filepath3 filepath4};
 FILEPATH=matrix5(ff);
 outputFileName='stack.tif';
 for K=51:150
-    img=imread([FILEPATH num2str(K,'%02d') '.tif']);
-    imwrite(img, outputFileName, 'WriteMode', 'append',  'Compression','none');
+    img=imread([FILEPATH num2str(K) '.tif']);
+    imwrite(img, [FILEPATH outputFileName], 'WriteMode', 'append',  'Compression','none');
 end
     end
 end
